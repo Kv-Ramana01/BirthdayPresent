@@ -228,6 +228,21 @@
         alert("Charlotte, you are loved more than words can say. Happy 20th Birthday!");
       }, 5000);
     };
+    const dontClickBtn = document.createElement('button');
+    dontClickBtn.textContent = "Don't Click Me!";
+    dontClickBtn.className = 'btn';
+    dontClickBtn.style.display = 'none';
+    dontClickBtn.onclick = function() {
+      window.location.href = 'https://youtu.be/xvFZjo5PgG0?si=l_mQyJm4YFIvrlQg';
+    };
+
+    document.querySelector('.container').appendChild(dontClickBtn);
+
+    document.getElementById('surpriseBtn').addEventListener('click', function() {
+      setTimeout(() => {
+        dontClickBtn.style.display = 'inline-block';
+      }, 5500);
+    });
     // Responsive canvas
     window.addEventListener('resize', ()=>{
       W = window.innerWidth; H = window.innerHeight;
