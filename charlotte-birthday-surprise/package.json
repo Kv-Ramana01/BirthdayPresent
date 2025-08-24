@@ -1,0 +1,16 @@
+{
+  "name": "charlotte-birthday-surprise",
+  "version": "1.0.0",
+  "description": "A surprise birthday website for Charlotte's 20th birthday.",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "live-server public",
+    "build": "echo 'Build step can be added here'"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "countdown": "^2.0.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}

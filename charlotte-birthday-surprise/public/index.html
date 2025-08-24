@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 20th Birthday, Charlotte!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f8cdda 0%, #1d2b64 100%);
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+    .container {
+      text-align: center;
+      padding-top: 8vh;
+      color: #fff;
+    }
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 20px #ffb6c1;
+      animation: popIn 1s ease;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .age {
+      font-size: 2em;
+      margin-bottom: 1em;
+      color: #ffe082;
+      text-shadow: 0 2px 10px #ffb6c1;
+      animation: popIn 1.2s 0.2s backwards;
+    }
+    .message {
+      font-size: 1.3em;
+      margin: 1.5em auto 2em auto;
+      max-width: 600px;
+      background: rgba(255,255,255,0.13);
+      border-radius: 20px;
+      padding: 1.2em 2em;
+      box-shadow: 0 2px 20px #ffb6c1;
+      animation: fadeIn 2s 0.5s backwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .cake {
+      margin: 2em auto;
+      width: 180px;
+      height: 180px;
+      position: relative;
+      animation: popIn 1.5s 0.5s backwards;
+    }
+    .cake-base {
+      width: 180px;
+      height: 60px;
+      background: #fff3e0;
+      border-radius: 0 0 90px 90px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 8px 30px #ffb6c1;
+    }
+    .cake-icing {
+      width: 180px;
+      height: 40px;
+      background: #ffb6c1;
+      border-radius: 90px 90px 60px 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+    .candle {
+      width: 12px;
+      height: 40px;
+      background: #ffe082;
+      border-radius: 6px;
+      position: absolute;
+      left: 84px;
+      top: -30px;
+      z-index: 3;
+      box-shadow: 0 0 10px #ffe082;
+    }
+    .flame {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle, #fffde7 60%, #ffb300 100%);
+      border-radius: 50%;
+      position: absolute;
+      left: 81px;
+      top: -42px;
+      z-index: 4;
+      animation: flicker 1s infinite alternate;
+    }
+    @keyframes flicker {
+      0% { transform: scaleY(1) scaleX(1); opacity: 1; }
+      100% { transform: scaleY(1.2) scaleX(0.9); opacity: 0.85; }
+    }
+    .btn {
+      margin-top: 2em;
+      padding: 1em 2.5em;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ffb6c1 0%, #ffe082 100%);
+      color: #1d2b64;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #ffb6c1;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #ffe082 0%, #ffb6c1 100%);
+      transform: scale(1.05);
+    }
+    .confetti {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 100;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .age { font-size: 1.2em; }
+      .message { font-size: 1em; padding: 1em; }
+      .cake { width: 120px; height: 120px; }
+      .cake-base, .cake-icing { width: 120px; }
+      .candle { left: 54px; }
+      .flame { left: 51px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas class="confetti"></canvas>
+  <div class="container">
+    <h1>Happy Birthday, Charlotte!</h1>
+    <div class="age">🎉 20 Years Young! 🎉</div>
+    <div class="cake">
+      <div class="cake-base"></div>
+      <div class="cake-icing"></div>
+      <div class="candle"></div>
+      <div class="flame"></div>
+    </div>
+    <div class="message">
+      <p>
+        Dear Charlotte my lil baby girl,<br>
+        Wishing you the happiest 20th birthday!<br>
+        You light up every room with your smile and kindness.<br>
+        I have enjoyed every single moment of my life after i met you! <br>
+        May your year ahead be filled with laughter, love, and all your dreams coming true and i know they will.<br>
+        <b>You are truly special!</b>
+      </p>
+      <p>Click the button below for a surprise! 🎁</p>
+    </div>
+    <button class="btn" id="surpriseBtn">Show My Surprise!</button>
+    <audio id="birthdaySong" src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfa4c7e.mp3"></audio>
+  </div>
+  <script>
+    // Confetti animation
+    const canvas = document.querySelector('.confetti');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    let confetti = [];
+    for(let i=0; i<150; i++){
+      confetti.push({
+        x: Math.random()*W,
+        y: Math.random()*H - H,
+        r: Math.random()*6+4,
+        d: Math.random()*Math.PI*2,
+        color: `hsl(${Math.random()*360},80%,60%)`,
+        tilt: Math.random()*10-5,
+        tiltAngle: 0,
+        tiltAngleIncremental: (Math.random()*0.07)+.05
+      });
+    }
+    function drawConfetti(){
+      ctx.clearRect(0,0,W,H);
+      confetti.forEach(c=>{
+        ctx.beginPath();
+        ctx.lineWidth = c.r;
+        ctx.strokeStyle = c.color;
+        ctx.moveTo(c.x + c.tilt + (c.r/3), c.y);
+        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r);
+        ctx.stroke();
+      });
+      updateConfetti();
+    }
+    function updateConfetti(){
+      confetti.forEach(c=>{
+        c.y += (Math.cos(c.d)+3 + c.r/2)/2;
+        c.x += Math.sin(c.d);
+        c.tiltAngle += c.tiltAngleIncremental;
+        c.tilt = Math.sin(c.tiltAngle- (c.d*2)) * 15;
+        if(c.y > H){
+          c.x = Math.random()*W;
+          c.y = -10;
+        }
+      });
+    }
+    let confettiActive = false;
+    function startConfetti(){
+      confettiActive = true;
+      (function animate(){
+        if(confettiActive){
+          drawConfetti();
+          requestAnimationFrame(animate);
+        }
+      })();
+    }
+    // Surprise button
+    document.getElementById('surpriseBtn').onclick = function(){
+      startConfetti();
+      document.getElementById('birthdaySong').play();
+      this.textContent = "🎂 Enjoy Your Day! 🎂";
+      this.disabled = true;
+      this.style.opacity = 0.7;
+      setTimeout(()=>{
+        alert("Charlotte, you are loved more than words can say. Happy 20th Birthday!");
+      }, 5000);
+    };
+    // Responsive canvas
+    window.addEventListener('resize', ()=>{
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+    });
+  </script>
+</body>
+</html>
