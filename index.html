@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Happy 20th Birthday, Charlotte!</title>
@@ -14,11 +15,13 @@
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
     }
+
     .container {
       text-align: center;
       padding-top: 8vh;
       color: #fff;
     }
+
     h1 {
       font-family: 'Pacifico', cursive;
       font-size: 3em;
@@ -27,10 +30,19 @@
       text-shadow: 0 4px 20px #ffb6c1;
       animation: popIn 1s ease;
     }
+
     @keyframes popIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
+
     .age {
       font-size: 2em;
       margin-bottom: 1em;
@@ -38,20 +50,28 @@
       text-shadow: 0 2px 10px #ffb6c1;
       animation: popIn 1.2s 0.2s backwards;
     }
+
     .message {
       font-size: 1.3em;
       margin: 1.5em auto 2em auto;
       max-width: 600px;
-      background: rgba(255,255,255,0.13);
+      background: rgba(255, 255, 255, 0.13);
       border-radius: 20px;
       padding: 1.2em 2em;
       box-shadow: 0 2px 20px #ffb6c1;
       animation: fadeIn 2s 0.5s backwards;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
+
     .cake {
       margin: 2em auto;
       width: 180px;
@@ -59,6 +79,7 @@
       position: relative;
       animation: popIn 1.5s 0.5s backwards;
     }
+
     .cake-base {
       width: 180px;
       height: 60px;
@@ -69,6 +90,7 @@
       left: 0;
       box-shadow: 0 8px 30px #ffb6c1;
     }
+
     .cake-icing {
       width: 180px;
       height: 40px;
@@ -79,6 +101,7 @@
       left: 0;
       z-index: 2;
     }
+
     .candle {
       width: 12px;
       height: 40px;
@@ -90,6 +113,7 @@
       z-index: 3;
       box-shadow: 0 0 10px #ffe082;
     }
+
     .flame {
       width: 18px;
       height: 18px;
@@ -101,10 +125,19 @@
       z-index: 4;
       animation: flicker 1s infinite alternate;
     }
+
     @keyframes flicker {
-      0% { transform: scaleY(1) scaleX(1); opacity: 1; }
-      100% { transform: scaleY(1.2) scaleX(0.9); opacity: 0.85; }
+      0% {
+        transform: scaleY(1) scaleX(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(1.2) scaleX(0.9);
+        opacity: 0.85;
+      }
     }
+
     .btn {
       margin-top: 2em;
       padding: 1em 2.5em;
@@ -118,29 +151,213 @@
       box-shadow: 0 2px 10px #ffb6c1;
       transition: background 0.3s, transform 0.2s;
     }
+
     .btn:hover {
       background: linear-gradient(90deg, #ffe082 0%, #ffb6c1 100%);
       transform: scale(1.05);
     }
+
     .confetti {
       position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
       z-index: 100;
     }
+
+    /* Floating hearts animation */
+    .hearts-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 101;
+    }
+
+    /* Pop-up card styles */
+    .popup-card-bg {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 20, 60, 0.55);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-card {
+      background: #fff;
+      color: #d72660;
+      border-radius: 24px;
+      box-shadow: 0 8px 40px #ffb6c1;
+      padding: 2.5em 2em 2em 2em;
+      max-width: 350px;
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.3em;
+      animation: popupIn 0.7s cubic-bezier(.68, -0.55, .27, 1.55);
+      position: relative;
+    }
+
+    @keyframes popupIn {
+      0% {
+        transform: scale(0.7) translateY(60px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .popup-card .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: #d72660;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+
+    .popup-card .close-btn:hover {
+      color: #1d2b64;
+    }
+
+    .popup-card .popup-gif {
+      width: 90px;
+      margin-bottom: 1em;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #ffe082;
+    }
+
+    /* Gallery styles */
+    .gallery-section {
+      margin: 2em auto 2em auto;
+      max-width: 340px;
+      background: rgba(255, 255, 255, 0.13);
+      border-radius: 18px;
+      box-shadow: 0 2px 20px #ffb6c1;
+      padding: 1.2em 0.5em 1.5em 0.5em;
+      position: relative;
+    }
+
+    .gallery-img {
+      width: 90%;
+      max-width: 300px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #ffe082;
+      margin-bottom: 0.7em;
+      transition: opacity 0.6s;
+    }
+
+    .gallery-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .gallery-btn {
+      background: #ffe082;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.3em;
+      color: #d72660;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #ffb6c1;
+      transition: background 0.2s;
+    }
+
+    .gallery-btn:hover {
+      background: #ffb6c1;
+      color: #1d2b64;
+    }
+
+    .gallery-caption {
+      color: #fff;
+      font-size: 1em;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.5em;
+      text-shadow: 0 2px 10px #ffb6c1;
+    }
+
     @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      .age { font-size: 1.2em; }
-      .message { font-size: 1em; padding: 1em; }
-      .cake { width: 120px; height: 120px; }
-      .cake-base, .cake-icing { width: 120px; }
-      .candle { left: 54px; }
-      .flame { left: 51px; }
+      h1 {
+        font-size: 2em;
+      }
+
+      .age {
+        font-size: 1.2em;
+      }
+
+      .message {
+        font-size: 1em;
+        padding: 1em;
+      }
+
+      .cake {
+        width: 120px;
+        height: 120px;
+      }
+
+      .cake-base,
+      .cake-icing {
+        width: 120px;
+      }
+
+      .candle {
+        left: 54px;
+      }
+
+      .flame {
+        left: 51px;
+      }
+
+      .gallery-img {
+        height: 120px;
+      }
+
+      .popup-card {
+        font-size: 1em;
+        padding: 1.2em 0.5em 1.5em 0.5em;
+      }
+
+      .popup-card .popup-gif {
+        width: 60px;
+      }
     }
   </style>
 </head>
+
 <body>
   <canvas class="confetti"></canvas>
+  <canvas class="hearts-canvas"></canvas>
+  <div class="popup-card-bg" id="popupBg">
+    <div class="popup-card">
+      <button class="close-btn" id="closePopup">&times;</button>
+      <img class="popup-gif" src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif" alt="Love GIF">
+      <div>
+        Charlotte, you are loved more than words can say.<br>
+        <b>Happy 20th Birthday!</b>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <h1>Happy Birthday, Charlotte!</h1>
     <div class="age">🎉 20 Years Young! 🎉</div>
@@ -149,6 +366,14 @@
       <div class="cake-icing"></div>
       <div class="candle"></div>
       <div class="flame"></div>
+    </div>
+    <div class="gallery-section" id="gallerySection">
+      <div class="gallery-controls">
+        <button class="gallery-btn" id="prevImg">&#8592;</button>
+        <button class="gallery-btn" id="nextImg">&#8594;</button>
+      </div>
+      <img class="gallery-img" id="galleryImg" src="images/img1.jpeg" alt="Memory">
+      <div class="gallery-caption" id="galleryCaption">cutie holds a cola or whatever.</div>
     </div>
     <div class="message">
       <p>
@@ -171,83 +396,187 @@
     let W = window.innerWidth, H = window.innerHeight;
     canvas.width = W; canvas.height = H;
     let confetti = [];
-    for(let i=0; i<150; i++){
+    for (let i = 0; i < 150; i++) {
       confetti.push({
-        x: Math.random()*W,
-        y: Math.random()*H - H,
-        r: Math.random()*6+4,
-        d: Math.random()*Math.PI*2,
-        color: `hsl(${Math.random()*360},80%,60%)`,
-        tilt: Math.random()*10-5,
+        x: Math.random() * W,
+        y: Math.random() * H - H,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * Math.PI * 2,
+        color: `hsl(${Math.random() * 360},80%,60%)`,
+        tilt: Math.random() * 10 - 5,
         tiltAngle: 0,
-        tiltAngleIncremental: (Math.random()*0.07)+.05
+        tiltAngleIncremental: (Math.random() * 0.07) + .05
       });
     }
-    function drawConfetti(){
-      ctx.clearRect(0,0,W,H);
-      confetti.forEach(c=>{
+    function drawConfetti() {
+      ctx.clearRect(0, 0, W, H);
+      confetti.forEach(c => {
         ctx.beginPath();
         ctx.lineWidth = c.r;
         ctx.strokeStyle = c.color;
-        ctx.moveTo(c.x + c.tilt + (c.r/3), c.y);
+        ctx.moveTo(c.x + c.tilt + (c.r / 3), c.y);
         ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r);
         ctx.stroke();
       });
       updateConfetti();
     }
-    function updateConfetti(){
-      confetti.forEach(c=>{
-        c.y += (Math.cos(c.d)+3 + c.r/2)/2;
+    function updateConfetti() {
+      confetti.forEach(c => {
+        c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
         c.x += Math.sin(c.d);
         c.tiltAngle += c.tiltAngleIncremental;
-        c.tilt = Math.sin(c.tiltAngle- (c.d*2)) * 15;
-        if(c.y > H){
-          c.x = Math.random()*W;
+        c.tilt = Math.sin(c.tiltAngle - (c.d * 2)) * 15;
+        if (c.y > H) {
+          c.x = Math.random() * W;
           c.y = -10;
         }
       });
     }
     let confettiActive = false;
-    function startConfetti(){
+    function startConfetti() {
       confettiActive = true;
-      (function animate(){
-        if(confettiActive){
+      (function animate() {
+        if (confettiActive) {
           drawConfetti();
           requestAnimationFrame(animate);
         }
       })();
     }
+
+    // Floating hearts animation
+    const heartsCanvas = document.querySelector('.hearts-canvas');
+    const heartsCtx = heartsCanvas.getContext('2d');
+    let HW = window.innerWidth, HH = window.innerHeight;
+    heartsCanvas.width = HW; heartsCanvas.height = HH;
+    let hearts = [];
+    function randomHeart() {
+      return {
+        x: Math.random() * HW,
+        y: HH + 30 + Math.random() * 60,
+        size: 18 + Math.random() * 18,
+        speed: 1.2 + Math.random() * 1.2,
+        alpha: 0.7 + Math.random() * 0.3,
+        swing: Math.random() * 2 * Math.PI,
+        swingSpeed: 0.01 + Math.random() * 0.02,
+        color: `hsl(${330 + Math.random() * 30}, 80%, 70%)`
+      };
+    }
+    for (let i = 0; i < 24; i++) hearts.push(randomHeart());
+    function drawHeart(ctx, x, y, size, color, alpha) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.moveTo(x, y + size / 4);
+      ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + size / 4);
+      ctx.bezierCurveTo(x - size / 2, y + size / 2, x, y + size * 0.8, x, y + size);
+      ctx.bezierCurveTo(x, y + size * 0.8, x + size / 2, y + size / 2, x + size / 2, y + size / 4);
+      ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + size / 4);
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.shadowColor = "#fff";
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.restore();
+    }
+    function animateHearts() {
+      heartsCtx.clearRect(0, 0, HW, HH);
+      for (let h of hearts) {
+        drawHeart(heartsCtx, h.x + Math.sin(h.swing) * 18, h.y, h.size, h.color, h.alpha);
+        h.y -= h.speed;
+        h.swing += h.swingSpeed;
+        if (h.y < -40) {
+          Object.assign(h, randomHeart());
+          h.y = HH + 30;
+        }
+      }
+      requestAnimationFrame(animateHearts);
+    }
+    animateHearts();
+    window.addEventListener('resize', () => {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+      HW = window.innerWidth; HH = window.innerHeight;
+      heartsCanvas.width = HW; heartsCanvas.height = HH;
+    });
+
+    // Pop-up card logic
+    const popupBg = document.getElementById('popupBg');
+    const closePopup = document.getElementById('closePopup');
+    closePopup.onclick = () => popupBg.style.display = 'none';
+
     // Surprise button
-    document.getElementById('surpriseBtn').onclick = function(){
+    document.getElementById('surpriseBtn').onclick = function () {
       startConfetti();
       document.getElementById('birthdaySong').play();
       this.textContent = "🎂 Enjoy Your Day! 🎂";
       this.disabled = true;
       this.style.opacity = 0.7;
-      setTimeout(()=>{
-        alert("Charlotte, you are loved more than words can say. Happy 20th Birthday!");
+      setTimeout(() => {
+        popupBg.style.display = 'flex';
       }, 5000);
     };
+
+    // Photo gallery slideshow
+    // Photo gallery slideshow
+    const galleryImgs = [
+      {
+        src: "images/img1.jpeg",
+        caption: "cutie holds a cola or whatever."
+      },
+      {
+        src: "images/img2.jpeg",
+        caption: "Cutie with the lab goan"
+      },
+      {
+        src: "images/img3.jpeg",
+        caption: "cutie is ai"
+      },
+      {
+        src: "images/img4.jpeg",
+        caption: "cutie does a pose"
+      },
+      {
+        src: "images/img5.jpeg",
+        caption: "just a cutie"
+      }
+      // Add more images from your images/ folder as you like!
+    ];
+    let galleryIdx = 0;
+    const galleryImg = document.getElementById('galleryImg');
+    const galleryCaption = document.getElementById('galleryCaption');
+    document.getElementById('prevImg').onclick = function () {
+      galleryIdx = (galleryIdx - 1 + galleryImgs.length) % galleryImgs.length;
+      galleryImg.style.opacity = 0;
+      setTimeout(() => {
+        galleryImg.src = galleryImgs[galleryIdx].src;
+        galleryCaption.textContent = galleryImgs[galleryIdx].caption;
+        galleryImg.style.opacity = 1;
+      }, 350);
+    };
+    document.getElementById('nextImg').onclick = function () {
+      galleryIdx = (galleryIdx + 1) % galleryImgs.length;
+      galleryImg.style.opacity = 0;
+      setTimeout(() => {
+        galleryImg.src = galleryImgs[galleryIdx].src;
+        galleryCaption.textContent = galleryImgs[galleryIdx].caption;
+        galleryImg.style.opacity = 1;
+      }, 350);
+    };
+    // Don't Click Me button (unchanged)
     const dontClickBtn = document.createElement('button');
     dontClickBtn.textContent = "Don't Click Me!";
     dontClickBtn.className = 'btn';
     dontClickBtn.style.display = 'none';
-    dontClickBtn.onclick = function() {
+    dontClickBtn.onclick = function () {
       window.location.href = 'https://youtu.be/xvFZjo5PgG0?si=l_mQyJm4YFIvrlQg';
     };
-
     document.querySelector('.container').appendChild(dontClickBtn);
-
-    document.getElementById('surpriseBtn').addEventListener('click', function() {
+    document.getElementById('surpriseBtn').addEventListener('click', function () {
       setTimeout(() => {
         dontClickBtn.style.display = 'inline-block';
       }, 5500);
     });
-    // Responsive canvas
-    window.addEventListener('resize', ()=>{
-      W = window.innerWidth; H = window.innerHeight;
-      canvas.width = W; canvas.height = H;
-    });
   </script>
 </body>
+
 </html>
